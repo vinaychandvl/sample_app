@@ -6,7 +6,7 @@
     <a class="hiddenanchor" id="tologin"></a>
     <div id="wrapper">
       <div id="login" class="animate form">
-        <form  action="mysuperscript.php" autocomplete="on"> 
+        <%= form_tag do %>
           <h1>Log in</h1> 
           <p> 
             <label for="username" class="uname" data-icon="u" > Your email or username </label>
@@ -20,18 +20,16 @@
             <input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" /> 
             <label for="loginkeeping">Keep me logged in</label>
           </p>
-          <p class="login button"> 
-            <input type="submit" value="Login" /> 
-          </p>
+          <%= submit_tag "Submit" %>
           <p class="change_link">
             Not a member yet ?
             <a href="#toregister" class="to_register">Join us</a>
           </p>
-         </form>
+         <%  end %>
         </div>
         <div id="register" class="animate form">
-          <form  action="mysuperscript.php" autocomplete="on"> 
-            <h1> Sign up </h1> 
+          <%= form_tag  do %>
+            <h1> Sign up </h1>
             <p> 
               <label for="usernamesignup" class="uname" data-icon="u">Your username</label>
               <input id="usernamesignup" name="usernamesignup" required="required" type="text" placeholder="myusername" />
@@ -66,13 +64,13 @@
               <input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password" placeholder="eg. X8df!90EO"/>
             </p>
             <p class="signin button"> 
-              <input type="submit" value="Sign up"/> 
+              <%= submit_tag "Signup" %>
             </p>
             <p class="change_link">  
               Already a member ?
               <a href="#tologin" class="to_register"> Go and log in </a>
             </p>
-          </form>
+          <%  end %>
         </div>			
       </div>
     </div>  
