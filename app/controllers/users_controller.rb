@@ -43,21 +43,23 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    userdata = params[:user]
-    newroles = eval(userdata[:roles].to_s).join(",")[1..-1]
-    puts newroles
-    userdata[:roles] = newroles
-    @user = User.new(userdata)
+    if request.post? and params[:user]
+      userdata = params[:user]
+      newroles = eval(userdata[:roles].to_s).join(",")[1..-1]
+      userdata[:roles] = newroles
+      @user = User.new(userdata)
 
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { respond_with(@user) }
-        format.xml  { render :xml => @user, :status => :created, :location => @user }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-        format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
+      respond_to do |format|
+        if @user.save
+          flash[:notice] = "User created."
+          format.html { redirect_to @user, notice: 'User was successfully created.' }
+          format.json { respond_with(@user) }
+          format.xml  { render :xml => @user, :status => :created, :location => @user }
+        else
+          format.html { render action: "new" }
+          format.json { render json: @user.errors, status: :unprocessable_entity }
+          format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
+        end
       end
     end
   end

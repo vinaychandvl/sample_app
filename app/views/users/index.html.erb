@@ -25,7 +25,7 @@
             <td><%= best_in_place user, :emailID%></td>
             <td><%= best_in_place user, :firstName%></td>
             <td><%= best_in_place user, :lastName%></td>
-            <td><%= best_in_place user, :roles%></td>
+            <td><%= user.roles%></td>
             <td><%= button_to 'Show', user, :class => "button_link", :method => "get"  %></td>
             <td><%= button_to 'Edit', edit_user_path(user), :class => "button_link", :method => "get"  %></td>
             <td><%= button_to 'Delete', {:action => "destroy", :id => user.id}, :class => "button_link", :confirm => "Are you sure?", :method => "delete" %></td>
@@ -38,15 +38,13 @@
         <th><input type="text" name="search_userName" value="Search User Names" class="search_init" /></th>
         <th><input type="text" name="search_emailID" value="Search Email ID" class="search_init" /></th>
         <th><input type="text" name="search_firstName" value="Search First Names" class="search_init" /></th>
-        <th><input type="text" name="search_roles" value="Search Last Names" class="search_init" /></th>
-        <th><input type="text" name="search_grade" value="Search Roles" class="search_init" /></th>
+        <th><input type="text" name="search_lastName" value="Search Last Names" class="search_init" /></th>
+        <th><input type="text" name="search_roles" value="Search Roles" class="search_init" /></th>
         <th></th>
-        <th></th>
-        <th></th>
+        <th colspan=2><%= button_to 'New User', new_user_path, :class => "button_link", :method => "get" %></th>
       </tr>
      </tfoot>
   </table>
-  <%= button_to 'New User', new_user_path, :class => "button_link", :method => "get" %>
   </div>
   </section>
 </div>

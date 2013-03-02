@@ -12,12 +12,12 @@
             <h1> EDIT USER </h1>
             <% if @user.errors.any? %>
               <div id="error_explanation">
-      				  <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-      				  <ul>
+                <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+                <ul>
                   <% @user.errors.full_messages.each do |msg| %>
-        				  <li><%= msg %></li>
+                  <li><%= msg %></li>
                   <% end %>
-      				  </ul>
+                </ul>
               </div>
             <% end %> 
             <p> 
@@ -47,7 +47,7 @@
             </p>
             <p> 
               <label for="passwordsignup_confirm" class="youpasswd" data-icon="p">Please confirm your password </label>
-              <input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password" placeholder="eg. X8df!90EO"/>
+              <%= f.password_field :password_confirmation%> 
             </p>
             <p class="signin button"> 
               <%= submit_tag "Submit" %>

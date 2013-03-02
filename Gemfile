@@ -11,6 +11,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'bcrypt-ruby', :require => 'bcrypt' 
 gem 'best_in_place'
 gem 'rspec'
 gem 'rspec-rails'

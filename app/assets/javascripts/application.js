@@ -59,11 +59,11 @@
         }
       });
       
-      $('#usertable').dataTable({
+      $('#usertable').dataTable({ 
+        "aaSorting" : [[ 1, "asc" ]],
         "fnDrawCallback": function( oSettings ) {
           $(".best_in_place").best_in_place();
         }
       });
-
 
     });
