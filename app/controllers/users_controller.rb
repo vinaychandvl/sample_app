@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @users }
+      format.xml  { render :xml => @users }
     end
   end
 
@@ -18,6 +19,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @user }
+      format.xml  { render :xml => @user }
     end
   end
 
@@ -28,7 +30,8 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @user }
+      format.json { render json: @users }
+      format.xml  { render :xml => @users }
     end
   end
 
@@ -40,15 +43,21 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(params[:user])
+    userdata = params[:user]
+    newroles = eval(userdata[:roles].to_s).join(",")[1..-1]
+    puts newroles
+    userdata[:roles] = newroles
+    @user = User.new(userdata)
 
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render json: @user, status: :created, location: @user }
+        format.json { respond_with(@user) }
+        format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
         format.html { render action: "new" }
         format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -60,11 +69,11 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { head :no_content }
+        format.html { redirect_to(@user, :notice => 'User was successfully updated.') }
+        format.json { respond_with_bip(@user) }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.json { respond_with_bip(@user) }
       end
     end
   end
@@ -78,6 +87,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to users_url }
       format.json { head :no_content }
+      format.xml  { head :ok }
     end
   end
 end

@@ -1,1 +1,61 @@
-<%= render 'signin_form' %>
+<%#
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+%>
+<div class="container">  
+  <header><h1> USER DETAILS </h1></header>
+  <section>				
+  <div id="container_demo" >
+    <div id="wrapper">
+      <div id="login" class="animate form">
+          <%= form_for @user, :url => { :action => "update" } do |f| %>
+            <h1> EDIT USER </h1>
+            <% if @user.errors.any? %>
+              <div id="error_explanation">
+      				  <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      				  <ul>
+                  <% @user.errors.full_messages.each do |msg| %>
+        				  <li><%= msg %></li>
+                  <% end %>
+      				  </ul>
+              </div>
+            <% end %> 
+            <p> 
+              <label for="usernamesignup" class="uname" data-icon="u">Your User Name</label>
+              <%= f.text_field :userName%>
+            </p>
+            <p> 
+              <label for="firstnamesignup" class="fname" data-icon="u">Your First Name</label>
+              <%= f.text_field :firstName%>
+            </p>
+            <p> 
+              <label for="lastnamesignup" class="lname" data-icon="u">Your Last Name</label>
+              <%= f.text_field :lastName%>
+            </p>
+            <p> 
+              <label for="emailsignup" class="youmail" data-icon="e" > Your email</label>
+              <%= f.text_field :emailID%>
+            </p>
+            <p> 
+              <label for="rolesignup" class="yourole" > Your role</label>
+              	<%= f.select :roles, {"admin" => "admin", "basic" => "basic", "power" => "power", "super" => "super"}, {}, :size=> 4, :multiple => true%>
+              </select>
+            </p>
+            <p> 
+              <label for="passwordsignup" class="youpasswd" data-icon="p">Your password </label>
+              <%= f.password_field :password%>
+            </p>
+            <p> 
+              <label for="passwordsignup_confirm" class="youpasswd" data-icon="p">Please confirm your password </label>
+              <input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password" placeholder="eg. X8df!90EO"/>
+            </p>
+            <p class="signin button"> 
+              <%= submit_tag "Submit" %>
+            </p>  
+          <% end %>
+        	<%= button_to 'Back', users_path, :class => "button_link", :method => "get" %>
+        </div>		
+      </div>
+    </div>  
+  </section>
+</div>

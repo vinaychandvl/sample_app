@@ -24,4 +24,7 @@ ActiveRecord::Schema.define(:version => 20130226201321) do
     t.datetime "updated_at", :null => false
   end
 
+  add_index "users", ["emailID"], :name => "Unique_emailID", :unique => true
+  add_index "users", ["userName"], :name => "Unique_userName", :unique => true
+
 end

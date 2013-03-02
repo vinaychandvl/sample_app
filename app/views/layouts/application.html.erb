@@ -1,66 +1,12 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8" />
-  <title>SampleApp</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-  <script type="text/javascript" charset="utf-8">
-    
-    /* Define two custom functions (asc and desc) for string sorting */
-    jQuery.fn.dataTableExt.oSort['string-case-asc']  = function(x,y) {
-        return ((x < y) ? -1 : ((x > y) ?  1 : 0));
-    };
-			
-    jQuery.fn.dataTableExt.oSort['string-case-desc'] = function(x,y) {
-        return ((x < y) ?  1 : ((x > y) ? -1 : 0));
-    };
-    
-    var asInitVals = new Array();
-			
-    $(document).ready(function() {
-
-    /* Build the DataTable with third column using our custom sort functions */
-    $('#usertable').dataTable({
-        "aaSorting": [ [0,'asc'], [1,'asc'] ],
-        "aoColumnDefs": [
-          { "sType": 'string-case', "aTargets": [ 2 ] }
-        ]
-    });
-				
-    $("tfoot input").keyup( function () {
-      /* Filter on the column (the index) of this element */
-      $('#usertable').dataTable().fnFilter( this.value, $("tfoot input").index(this) );
-    });
-
-    /*
-     * Support functions to provide a little bit of 'user friendlyness' to the textboxes in 
-     * the footer
-     */
-    $("tfoot input").each( function (i) {
-      asInitVals[i] = this.value;
-    } );
-
-    $("tfoot input").focus( function () {
-      if ( this.className == "search_init" ){
-        this.className = "";
-        this.value = "";
-      }
-    } );
-    
-    $("tfoot input").blur( function (i) {
-      if ( this.value == "" ){
-        this.className = "search_init";
-        this.value = asInitVals[$("tfoot input").index(this)];
-      }
-    } );
-  });
-</script>
-<body>
-
-<%= yield %>
-
-</body>
+	<head>
+  		<title>SampleApp</title>
+  		<%= stylesheet_link_tag    "application", :media => "all" %>
+  		<%= javascript_include_tag "application" %>
+  		<%= csrf_meta_tags %>
+	</head>
+	<body>
+  		<%= yield %>
+	</body>
 </html>

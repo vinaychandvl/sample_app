@@ -23,15 +23,15 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td><%= @user.id %></td>
-        <td><%= @user.userName %></td>
-        <td><%= @user.emailID %></td>
-        <td><%= @user.firstName %></td>
-        <td><%= @user.lastName %></td>
-        <td><%= @user.roles %></td>
-        <td><%= link_to 'Edit', edit_user_path(@user) %></td>
-        <td><%= link_to 'Back', users_path %></td>
+      <tr id="user_<%= @user.id %>">
+            <td><%=@user.id%></td>
+            <td><%= best_in_place @user, :userName, :type => :input%></td>
+            <td><%= best_in_place @user, :emailID, :type => :input%></td>
+            <td><%= best_in_place @user, :firstName, :type => :input%></td>
+            <td><%= best_in_place @user, :lastName, :type => :input%></td>
+            <td><%= best_in_place @user, :roles, :type => :input%></td>
+        <td><%= button_to 'Edit', edit_user_path(@user), :class => "button_link", :method => "get"  %></td>
+        <td><%= button_to 'Back', users_path, :class => "button_link", :method => "get"  %></td>
       </tr>
     </tbody>
   </table>

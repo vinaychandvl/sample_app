@@ -129,6 +129,12 @@ input {
 	     -o-transition: all 0.2s linear;
 	        transition: all 0.2s linear;
 }
+#wrapper select{
+    width: 87%;
+    margin-top: 4px;
+    padding: 10px 5px 10px 32px;	
+    border: 1px solid rgb(178, 178, 178);
+}
 #wrapper input:not([type="checkbox"]):active,
 #wrapper input:not([type="checkbox"]):focus{
 	border: 1px solid rgba(91, 90, 90, 0.7);
@@ -380,3 +386,36 @@ p.change_link{
 	height: 90px;
 	background: transparent;
 }
+
+.button_link {
+	display: inline-block;
+	vertical-align: baseline;
+	margin: 0 2px;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	padding: .1em 1.2em;
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	-webkit-border-radius: 1em;
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	-moz-border-radius: 1em;
+	border-radius: 1em;
+	color: #d9eef7;
+	border: solid 1px #0076a3;
+	background: -webkit-linear-gradient(top, #00adee, #0078a5);
+	background: -moz-linear-gradient(top, #00adee, #0078a5);
+}
+
+.button_link:hover {
+	text-decoration: none;
+	background: -webkit-linear-gradient(top, #0095cc, #00678e);
+	background: -moz-linear-gradient(top, #0095cc, #00678e);
+}
+
+.button_link:active {
+	position: relative;
+	top: 1px;
+	color: #80bed6;
+	background: -webkit-linear-gradient(top, #0078a5, #00adee);
+	background: -moz-linear-gradient(top, #0078a5, #00adee);
+}	

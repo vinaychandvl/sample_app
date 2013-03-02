@@ -11,47 +11,49 @@
   <div id="container_demo" >
     <div id="wrapper">
       <div id="login" class="animate form">
-          <form  action="mysuperscript.php" autocomplete="on"> 
+          <%= form_for @user, :url => { :action => "create" } do |f| %>
             <h1> CREATE / EDIT USER </h1> 
             <p> 
-              <label for="usernamesignup" class="uname" data-icon="u">Your username</label>
-              <input id="usernamesignup" name="usernamesignup" required="required" type="text" placeholder="myusername" />
+              <label for="usernamesignup" class="uname" data-icon="u">Your User Name</label>
+              <!--<input id="usernamesignup" name="usernamesignup" required="required" type="text" placeholder="myusername" /> -->
+              <%= f.text_field :userName%>
             </p>
             <p> 
-              <label for="firstnamesignup" class="fname" data-icon="u">Your username</label>
-              <input id="firstnamesignup" name="firstnamesignup" required="required" type="text" placeholder="myfirstname" />
+              <label for="firstnamesignup" class="fname" data-icon="u">Your First Name</label>
+              <!--<input id="firstnamesignup" name="firstnamesignup" required="required" type="text" placeholder="myfirstname" /> -->
+              <%= f.text_field :firstName%>
             </p>
             <p> 
-              <label for="lastnamesignup" class="lname" data-icon="u">Your username</label>
-              <input id="lastnamesignup" name="lastnamesignup" required="required" type="text" placeholder="mylastname" />
+              <label for="lastnamesignup" class="lname" data-icon="u">Your Last Name</label>
+              <!--<input id="lastnamesignup" name="lastnamesignup" required="required" type="text" placeholder="mylastname" /> -->
+              <%= f.text_field :lastName%>
             </p>
             <p> 
               <label for="emailsignup" class="youmail" data-icon="e" > Your email</label>
-              <input id="emailsignup" name="emailsignup" required="required" type="email" placeholder="mysupermail@mail.com"/> 
+              <!--<input id="emailsignup" name="emailsignup" required="required" type="email" placeholder="mysupermail@mail.com"/> -->
+              <%= f.text_field :emailID%>
             </p>
             <p> 
               <label for="rolesignup" class="yourole" > Your role</label>
               <select id="rolesignup" title ="rolesignup" name="rolesignup" size="2" multiple="multiple">
-              <option name=admin value=admin> admin </option>
-              <option name=basic value=basic> basic </option>
-              <option name=power value=power> power </option>
-              <option name=super value=super> super </option>
+                <%= options_for_select([["admin", "admin"], ["basic", "basic"],["power", "power"], ["super", "super"] ])%>
               </select>
             </p>
             <p> 
               <label for="passwordsignup" class="youpasswd" data-icon="p">Your password </label>
-              <input id="passwordsignup" name="passwordsignup" required="required" type="password" placeholder="eg.X8df!90EO"/>
+              <!--<input id="passwordsignup" name="passwordsignup" required="required" type="password" placeholder="eg.X8df!90EO"/> -->
+              <%= f.password_field :password%>
             </p>
             <p> 
               <label for="passwordsignup_confirm" class="youpasswd" data-icon="p">Please confirm your password </label>
               <input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password" placeholder="eg. X8df!90EO"/>
             </p>
             <p class="signin button"> 
-              <input type="submit" value="Save"/> 
+              <%= submit_tag "Submit" %>
             </p>  
-          </form>
-          <%= link_to 'Show', @user %> |
-        	<%= link_to 'Back', users_path %>
+          <% end %>
+          <%= button_to 'Show', @user, :class => "button_link", :method => "get" %>
+        	<%= button_to 'Back', users_path, :class => "button_l", :method => "get" %>
         </div>		
       </div>
     </div>  
