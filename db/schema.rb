@@ -18,12 +18,10 @@ ActiveRecord::Schema.define(:version => 20130302193734) do
     t.string   "firstName"
     t.string   "lastName"
     t.string   "emailID"
-    t.string   "password"
-    t.string   "password_confirmation"
     t.string   "password_digest"
     t.string   "roles"
-    t.datetime "created_at",            :null => false
-    t.datetime "updated_at",            :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   add_index "users", ["emailID"], :name => "index_users_on_emailID"
