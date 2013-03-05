@@ -17,6 +17,7 @@
         <th> Roles     </th>
         <th> Edit      </th>
         <th> Back      </th>
+        <th> Back      </th>
       </tr>
     </thead>
     <tbody>
@@ -29,6 +30,7 @@
             <td><%= best_in_place @user, :roles, :type => :input%></td>
         <td><%= button_to 'Edit', edit_user_path(@user), :class => "button_link", :method => "get"  %></td>
         <td><%= button_to 'Back', users_path, :class => "button_link", :method => "get"  %></td>
+        <td><%= button_to 'Delete', {:action => "destroy", :id => @user.id}, :class => "button_link", :confirm => "Are you sure?", :method => "delete" %></td>
       </tr>
     </tbody>
   </table>

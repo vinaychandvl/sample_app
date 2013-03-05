@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_filter :signed_in_user, only: [:index, :edit, :update, :show, :destroy, :addnewrow, :createnewuser]
   # GET /users
   # GET /users.json
   def index
@@ -44,10 +45,7 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     if request.post? and params[:user]
-      userdata = params[:user]
-      newroles = eval(userdata[:roles].to_s).join(",")[1..-1]
-      userdata[:roles] = newroles
-      @user = User.new(userdata)
+      @user = User.new(params[:user])
 
       respond_to do |format|
         if @user.save
@@ -92,4 +90,43 @@ class UsersController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def addnewrow
+    flash[:notice] = "Add new user in the row created"
+    respond_to do |format|
+      format.html { redirect_to users_url }
+      format.xml { redirect_to users_url }
+      format.js
+    end
+
+  end
+
+
+  def createnewuser
+    puts params.inspect
+  @user = User.new
+  @user.userName = params[:user][:userName]
+  @user.firstName = params[:user][:firstName]
+  @user.lastName = params[:user][:lastName]
+  @user.emailID = params[:user][:emailID]
+  @user.password = "foobar"
+  @user.password_confirmation = "foobar"
+   respond_to do |format|
+        if @user.save
+          format.html { redirect_to users_url }
+          format.json { respond_with(@user) }
+          format.xml  { render :xml => @user, :status => :created, :location => @user }
+        else
+          format.html { redirect_to users_url }
+          format.json { render json: @user.errors, status: :unprocessable_entity }
+          format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
+        end
+      end
+  end
+
+  private
+  def signed_in_user
+    redirect_to signin_url, notice: "Please sign in" unless signed_in?
+  end
+
 end

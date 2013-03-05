@@ -3,10 +3,19 @@
 	<head>
   		<title>SampleApp</title>
   		<%= stylesheet_link_tag    "application", :media => "all" %>
-  		<%= javascript_include_tag "application" %>
+  		<%= javascript_include_tag "jquery-1.9.1","application" %>
   		<%= csrf_meta_tags %>
-	</head>
-	<body>
-  		<%= yield %>
+  		<%= render 'layouts/shim' %>
+  </head>
+  <body>
+    <%= render 'layouts/header' %>
+    <div class="container">
+			<% flash.each do |key, value| %>
+				<div class="alert alert-<%= key %>" id="elementstatus"><%= value %></div>
+			<% end %>
+      <%= yield %>
+			<%= render 'layouts/footer' %>
+			<%#= debug(params) if Rails.env.development? %>
+    </div>
 	</body>
 </html>

@@ -255,7 +255,7 @@ BestInPlaceEditor.prototype = {
 
     // Binding back after being clicked
     jQuery(this.activator).bind('click', {editor: this}, this.clickHandler);
-    //this.element.trigger(jQuery.Event("best_in_place:deactivate"));
+    this.element.trigger(jQuery.Event("best_in_place:deactivate"));
 
     if (this.collectionValue !== null && this.formType == "select") {
       this.collectionValue = this.previousCollectionValue;

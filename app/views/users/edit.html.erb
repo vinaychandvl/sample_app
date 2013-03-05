@@ -37,23 +37,16 @@
               <%= f.text_field :emailID%>
             </p>
             <p> 
-              <label for="rolesignup" class="yourole" > Your role</label>
-              	<%= f.select :roles, {"admin" => "admin", "basic" => "basic", "power" => "power", "super" => "super"}, {}, :size=> 4, :multiple => true%>
-              </select>
+              <label for="rolesignup" class="yourole" data-icon="u" > Your role</label>
+              <%= f.text_field :roles%>	
             </p>
             <p> 
-              <label for="passwordsignup" class="youpasswd" data-icon="p">Your password </label>
-              <%= f.password_field :password%>
-            </p>
-            <p> 
-              <label for="passwordsignup_confirm" class="youpasswd" data-icon="p">Please confirm your password </label>
-              <%= f.password_field :password_confirmation%> 
-            </p>
             <p class="signin button"> 
               <%= submit_tag "Submit" %>
             </p>  
           <% end %>
         	<%= button_to 'Back', users_path, :class => "button_link", :method => "get" %>
+          <%= button_to 'Delete', {:action => "destroy", :id => @user.id}, :class => "button_link", :confirm => "Are you sure?", :method => "delete" %>
         </div>		
       </div>
     </div>  

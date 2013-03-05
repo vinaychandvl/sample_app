@@ -10,7 +10,8 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
-//= require jquery-1.9.1
+//= require jquery-1.9.1.min
+//= require jquery_ujs
 //= require jquery-ui-1.10.1.custom.min
 //= require best_in_place
 //= require jquery.purr
@@ -18,6 +19,7 @@
 //= require jquery.dataTables.min
 //= require jquery.multiselect.min
 //= require_self
+//= require_tree .
 //  
 
     /* Define two custom functions (asc and desc) for string sorting */
@@ -58,12 +60,14 @@
           this.value = asInitVals[$("tfoot input").index(this)];
         }
       });
-      
+
       $('#usertable').dataTable({ 
-        "aaSorting" : [[ 1, "asc" ]],
+        "aaSorting" : [[ 0, "desc" ]],
+        "aoColumns": [ null, null, null, null, null, { "bSortable": false }, { "bSortable": false }, { "bSortable": false }, { "bSortable": false } ],
         "fnDrawCallback": function( oSettings ) {
           $(".best_in_place").best_in_place();
         }
       });
+    
+});
 
-    });

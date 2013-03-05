@@ -1,7 +1,19 @@
 <div class="container">  
   <header><h1>Login and Registration Form </h1></header>
   <section>				
-  <div id="container_demo" >
+    <div id="container_demo" >
+      <div class="center hero-unit">
+        <h1>Admin App</h1>
+        <h2>This is the home page for the Admin application.</h2>
+        <h4>Sign up to become a user</h4>
+        <%= link_to "Sign Up now!", 'signup', class: "btn btn-large btn-primary" %>
+        </br></br></br>
+        Are you an admin? <%= link_to "Sign in", 'signin', class: "btn btn-small" %>
+      </div>
+    </div>
+  </section>
+</div>
+<!--
     <a class="hiddenanchor" id="toregister"></a>
     <a class="hiddenanchor" id="tologin"></a>
     <div id="wrapper">
@@ -78,3 +90,4 @@
     </div>  
   </section>
 </div>
+-->
