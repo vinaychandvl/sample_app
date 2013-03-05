@@ -10,16 +10,11 @@ $grayMediumLight: #eaeaea;
 }
 
 $lightGray: #999;
-html {
-  overflow-y: scroll;
-}
+
 body {
   padding-top: 60px;
 }
 
-section {
-  overflow: auto;
-}
 
 textarea {
   resize: vertical;
@@ -120,22 +115,6 @@ footer ul li {
 
 /* forms */
 
-input, textarea, select, .uneditable-input {
-  border: 1px solid #bbb;
-  padding: 10px;
-  margin-bottom: 15px;
-  @include box_sizing;
-}
-
-input, textarea, .uneditable-input {
-  width:100%;
-
-}
-
-
-input {
-  height: auto !important;
-}
 #error_explanation {
   color: #f00;
   ul {

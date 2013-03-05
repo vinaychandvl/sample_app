@@ -1,7 +1,8 @@
 class SessionsController < ApplicationController
   
   def new
-  end
+    sign_out
+  end 
   
   def create
     user = User.find_by_userName(params[:session][:userName])

@@ -1,4 +1,4 @@
-#container_demo{
+.container, #container_demo{
 	 text-align: left;
 	 margin: 0;
 	 padding: 0;
@@ -42,12 +42,11 @@ a.hiddenanchor{
 }
 /** The wrapper that will contain our two forms **/
 #wrapper{
-	width: 60%;
-	right: 0px;
-	min-height: 560px;	
+	width: 100%;
+	min-height: 800px;	
 	margin: 0px auto;	
-	width: 500px;
-	position: relative;	
+	position: relative;
+	width: 500px;	
 }
 /**** Styling the form elements **/
 
@@ -60,11 +59,11 @@ a.hiddenanchor{
 #wrapper h1{
 	font-size: 48px;
 	color: rgb(6, 106, 117);
-	padding: 10px 0 10px 0;
+	padding: 2px 0 2px 0;
 	font-family: 'FranchiseRegular','Arial Narrow',Arial,sans-serif;
 	font-weight: bold;
 	text-align: center;
-	padding-bottom: 30px;
+	padding-bottom: 10px;
 }
 /** For the moment only webkit supports the background-clip:text; */
 #wrapper h1{
@@ -82,7 +81,7 @@ a.hiddenanchor{
 	display: block;
 	width: 100%;
 	height: 2px;
-	margin-top: 10px;
+	margin-top: 5px;
 	background: -moz-linear-gradient(left, rgba(147,184,189,0) 0%, rgba(147,184,189,0.8) 20%, rgba(147,184,189,1) 53%, rgba(147,184,189,0.8) 79%, rgba(147,184,189,0) 100%); 
 	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(147,184,189,0)), color-stop(20%,rgba(147,184,189,0.8)), color-stop(53%,rgba(147,184,189,1)), color-stop(79%,rgba(147,184,189,0.8)), color-stop(100%,rgba(147,184,189,0))); 
 	background: -webkit-linear-gradient(left, rgba(147,184,189,0) 0%,rgba(147,184,189,0.8) 20%,rgba(147,184,189,1) 53%,rgba(147,184,189,0.8) 79%,rgba(147,184,189,0) 100%); 
@@ -92,7 +91,7 @@ a.hiddenanchor{
 }
 
 #wrapper p{
-	margin-bottom:15px;
+	margin-bottom:5px;
 }
 #wrapper p:first-child{
 	margin: 0px;
@@ -120,8 +119,8 @@ input {
 /* all the input except submit and checkbox */
 #wrapper input:not([type="checkbox"]){
 	width: 92%;
-	margin-top: 4px;
-	padding: 10px 5px 10px 32px;	
+	margin-top: 2px;
+	padding: 4px 4px 4px 30px;	
 	border: 1px solid rgb(178, 178, 178);
 	-webkit-appearance: textfield;
 	-webkit-box-sizing: content-box;
@@ -140,8 +139,8 @@ input {
 }
 #wrapper select{
     width: 87%;
-    margin-top: 4px;
-    padding: 10px 5px 10px 32px;	
+    margin-top: 2px;
+    padding: 4px 4px 4px 4px;	
     border: 1px solid rgb(178, 178, 178);
 }
 #wrapper input:not([type="checkbox"]):active,
@@ -169,7 +168,7 @@ input {
 	width: 30%;
 	cursor: pointer;	
 	background: rgb(61, 157, 179);
-	padding: 8px 5px;
+	padding: 4px 2px;
 	font-family: 'BebasNeueRegular','Arial Narrow',Arial,sans-serif;
 	color: #fff;
 	font-size: 24px;	
@@ -239,7 +238,7 @@ p.change_link{
 	left: 0px;
 	height: 20px;
 	width: 440px;
-	padding: 17px 30px 20px 30px;
+	padding: 5px 5px 5px 5px;
 	font-size: 16px	;
 	text-align: right;
 	border-top: 1px solid rgb(219, 229, 232);
@@ -310,7 +309,7 @@ p.change_link{
 	top: 0px;
 	width: 88%;	
 	padding: 18px 6% 60px 6%;
-	margin: 0 0 35px 0;
+	margin: 0 0 5px 0;
 	background: rgb(247, 247, 247);
 	border: 1px solid rgba(147, 184, 189,0.8);
 	-webkit-box-shadow: 0pt 2px 5px rgba(105, 108, 109,  0.7),	0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
@@ -376,7 +375,7 @@ p.change_link{
 /** yerk some ugly IE fixes 'cause I know someone will ask "why does it look ugly in IE?", no matter how many warnings I will put in the article */
 
 .lt8 #wrapper input{
-	padding: 10px 5px 10px 32px;
+	padding: 2px 2px 2px 2px;
     width: 92%;
 }
 .lt8 #wrapper input[type=checkbox]{

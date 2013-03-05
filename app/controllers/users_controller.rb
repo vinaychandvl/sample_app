@@ -92,9 +92,8 @@ class UsersController < ApplicationController
   end
 
   def addnewrow
-    flash[:notice] = "Add new user in the row created"
     respond_to do |format|
-      format.html { redirect_to users_url }
+      format.html { redirect_to users_url, notice: 'Add new user details in table.' }
       format.xml { redirect_to users_url }
       format.js
     end
@@ -116,6 +115,7 @@ class UsersController < ApplicationController
           format.html { redirect_to users_url }
           format.json { respond_with(@user) }
           format.xml  { render :xml => @user, :status => :created, :location => @user }
+          format.js { render :js => "window.location.replace('#{article_path(@article)}');"}
         else
           format.html { redirect_to users_url }
           format.json { render json: @user.errors, status: :unprocessable_entity }

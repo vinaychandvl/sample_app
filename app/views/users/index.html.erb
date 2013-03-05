@@ -3,7 +3,7 @@
 <div class="container">  
   <header><h1>Listing users</h1></header>
   <section>
-    <%= button_to "Add User", addnewrow_path, :class => "btn btn-small btn-info", :remote => true  %>
+    <%= button_to "Add User", addnewrow_path, :class => "button_link", :remote => true  %>
   <div id="container_demo" >
   <table cellpadding="0" cellspacing="0" border="0" class="display" id="usertable">
     <thead>
@@ -43,7 +43,8 @@
         <th><input type="text" name="search_lastName" value="Search Last Names" class="search_init" /></th>
         <th><input type="text" name="search_roles" value="Search Roles" class="search_init" /></th>
         <th></th>
-        <th colspan=2><%= button_to 'New User', new_user_path, :class => "button_link", :method => "get" %></th>
+        <th></th>
+        <th><%= button_to 'New User', new_user_path, :class => "button_link", :method => "get" %></th>
       </tr>
      </tfoot>
   </table>
